@@ -8,7 +8,7 @@ const ActivityList = ({ activities, onRemoveActivity }) => {
         <ActivityItem
           key={index}
           activity={activity}
-          onRemove={() => onRemoveActivity(index)}
+          removeActivity={() => onRemoveActivity(index)}
         />
       ))}
     </ul>
