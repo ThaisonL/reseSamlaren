@@ -1,8 +1,12 @@
-# React + Vite
+ReseSamlaren är en applikation som användaren kan lägga
+till aktiviter, datum och plats och man kan ta bort aktiviteter.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+För att starta följande applikation
 
-Currently, two official plugins are available:
+1. Klona detta github repo https://github.com/ThaisonL/reseSamlaren.git
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+2. byt till rätt mapp (reseSamlaren)
+
+3. kontrollera att vite är installerat.
+
+4. kör npm run dev.
