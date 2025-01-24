@@ -1,7 +1,7 @@
 import React from "react";
 import ActivityItem from "./ActivityItem";
 
-const ActivityList = ({ activities, onRemoveActivity }) => {
+const ActivityList = ({ activities, onRemoveActivity, onChangeActivity }) => {
   return (
     <ul>
       {activities.map((activity, index) => (
@@ -9,6 +9,7 @@ const ActivityList = ({ activities, onRemoveActivity }) => {
           key={index}
           activity={activity}
           removeActivity={() => onRemoveActivity(index)}
+          changeActivity={(updatedActivity) => onChangeActivity(index, updatedActivity)}
         />
       ))}
     </ul>

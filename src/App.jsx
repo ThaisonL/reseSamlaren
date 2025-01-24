@@ -10,9 +10,16 @@ const App = () => {
     setActivities([...activities, newActivity]);
   };
 
-  const removeActivity = (index) => {
+  const removeActivity = (index,) => {
     setActivities(activities.filter((_, i) => i !== index));
   };
+
+  const changeActivity = (index, updatedActivity) => {
+    setActivities(activities.map((activity, i) =>
+    i === index ? updatedActivity : activity
+      )
+    );
+  }
 
   return (
     <div>
