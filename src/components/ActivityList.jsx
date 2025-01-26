@@ -8,8 +8,9 @@ const ActivityList = ({ activities, onRemoveActivity, onChangeActivity }) => {
         <ActivityItem
           key={index}
           activity={activity}
+          index={index}
           removeActivity={() => onRemoveActivity(index)}
-          changeActivity={(updatedActivity) => onChangeActivity(index, updatedActivity)}
+          changeActivity = {onChangeActivity}
         />
       ))}
     </ul>

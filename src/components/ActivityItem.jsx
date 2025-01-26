@@ -1,8 +1,12 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 
-const ActivityItem = ({ activity, removeActivity, changeActivity }) => {
+const ActivityItem = ({ activity, removeActivity, changeActivity, index }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editedActivity, setEditedActivity] = useState(activity);
+
+  useEffect(() => {
+    setEditedActivity(activity);
+  }, [activity]);
 
   const handleEditChange = (e) => {
     const { name, value} = e.target;
@@ -10,7 +14,7 @@ const ActivityItem = ({ activity, removeActivity, changeActivity }) => {
   };
 
     const saveChanges = () => {
-      changeActivity(editedActivity.index, editedActivity);
+      changeActivity(index, editedActivity);
       setIsEditing(false);
     };
 
@@ -21,14 +25,23 @@ const ActivityItem = ({ activity, removeActivity, changeActivity }) => {
         <input
         type="text"
         name="name"
-        value={editiedActivity.name}
+        value={editedActivity.name}
         onChange={handleEditChange}
+        placeholder="Namn"
+        />
+        <input
+        type="text"
+        name="date"
+        value={editedActivity.date}
+        onChange={handleEditChange}
+        placeholder="Datum"
         />
         <input
         type="text"
         name="place"
         value={editedActivity.place}
         onChange={handleEditChange}
+        placeholder="Plats"
         />
         <button onClick={saveChanges}>Spara</button>
         <button onClick={() => setIsEditing(false)}>Avbryt</button>

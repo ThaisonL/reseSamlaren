@@ -15,17 +15,22 @@ const App = () => {
   };
 
   const changeActivity = (index, updatedActivity) => {
-    setActivities(activities.map((activity, i) =>
-    i === index ? updatedActivity : activity
+    setActivities((prevActivities) =>
+      prevActivities.map((activity, i) =>
+        i === index ? updatedActivity : activity
       )
     );
-  }
+  };
 
   return (
     <div>
       <Header />
       <ActivityForm addActivity={addActivity} />
-      <ActivityList activities={activities} onRemoveActivity={removeActivity} />
+      <ActivityList 
+       activities={activities}
+       onRemoveActivity={removeActivity}
+       onChangeActivity={changeActivity}
+        />
     </div>
   );
 };
