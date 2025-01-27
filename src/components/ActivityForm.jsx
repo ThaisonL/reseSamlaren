@@ -8,7 +8,6 @@ const ActivityForm = ({ addActivity }) => {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
 
-    // Rensa felmeddelanden vid ändring
     if (errors[name]) {
       setErrors({ ...errors, [name]: "" });
     }
@@ -22,10 +21,10 @@ const ActivityForm = ({ addActivity }) => {
     if (!form.place) newErrors.place = "Plats är obligatoriskt.";
 
     if (Object.keys(newErrors).length > 0) {
-      setErrors(newErrors);
+      setErrors(newErrors); // if there are any errors, put them in state
     } else {
-      addActivity(form);
-      setForm({ name: "", date: "", place: "" }); // Töm formuläret
+      addActivity(form); // adds activity if there are no errors
+      setForm({ name: "", date: "", place: "" }); // empties form
     }
   };
 

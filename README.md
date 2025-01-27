@@ -10,3 +10,5 @@ För att starta följande applikation
 3. kontrollera att vite är installerat.
 
 4. kör npm run dev.
+
+merge successful

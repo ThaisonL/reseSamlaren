@@ -4,27 +4,28 @@ import ActivityForm from "./components/ActivityForm";
 import ActivityList from "./components/ActivityList";
 
 const App = () => {
-  // Hämta aktiviteter från localStorage vid sidstart
+  // useState handles activities that is saved localy 
   const [activities, setActivities] = useState(() => {
     const savedActivities = JSON.parse(localStorage.getItem("activities"));
     return savedActivities ? savedActivities : [];
   });
 
-  // Spara aktiviteter till localStorage när de ändras
+  // useEffect updates localStorage eachtime activies changes
   useEffect(() => {
     if (activities.length > 0) {
       localStorage.setItem("activities", JSON.stringify(activities));
     }
-  }, [activities]);
+  }, [activities]); // this runs when activiy changes
 
+  // Add newActivity to state
   const addActivity = (newActivity) => {
-    setActivities([...activities, newActivity]);
+    setActivities([...activities, newActivity]); 
   };
-
+  // Remove activity from state based on index
   const removeActivity = (index,) => {
     setActivities(activities.filter((_, i) => i !== index));
   };
-
+  // updates specific activity
   const changeActivity = (index, updatedActivity) => {
     setActivities((prevActivities) =>
       prevActivities.map((activity, i) =>
