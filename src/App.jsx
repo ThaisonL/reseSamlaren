@@ -12,9 +12,7 @@ const App = () => {
 
   // useEffect updates localStorage eachtime activies changes
   useEffect(() => {
-    if (activities.length > 0) {
       localStorage.setItem("activities", JSON.stringify(activities));
-    }
   }, [activities]); // this runs when activiy changes
 
   // Add newActivity to state
