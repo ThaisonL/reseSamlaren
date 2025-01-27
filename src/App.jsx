@@ -1,10 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "./components/Header";
 import ActivityForm from "./components/ActivityForm";
 import ActivityList from "./components/ActivityList";
 
 const App = () => {
-  const [activities, setActivities] = useState([]);
+  // Hämta aktiviteter från localStorage vid sidstart
+  const [activities, setActivities] = useState(() => {
+    const savedActivities = JSON.parse(localStorage.getItem("activities"));
+    return savedActivities ? savedActivities : [];
+  });
+
+  // Spara aktiviteter till localStorage när de ändras
+  useEffect(() => {
+    if (activities.length > 0) {
+      localStorage.setItem("activities", JSON.stringify(activities));
+    }
+  }, [activities]);
 
   const addActivity = (newActivity) => {
     setActivities([...activities, newActivity]);
@@ -21,17 +32,20 @@ const App = () => {
       )
     );
   };
+  
 
   return (
-    <div>
-      <Header />
-      <ActivityForm addActivity={addActivity} />
-      <ActivityList 
-       activities={activities}
-       onRemoveActivity={removeActivity}
-       onChangeActivity={changeActivity}
-        />
-    </div>
+
+<div>
+  <Header />
+  <ActivityForm addActivity={addActivity} />
+  <ActivityList 
+    activities={activities}
+    onRemoveActivity={removeActivity}
+    onChangeActivity={changeActivity}
+  />
+</div>
+
   );
 };
 

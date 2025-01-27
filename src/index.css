@@ -25,9 +25,11 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
+  justify-content: center;
+  align-items: center; /* Centrera innehållet vertikalt och horisontellt */
   min-width: 320px;
   min-height: 100vh;
+  text-align: center; /* All text kommer nu att vara centrerad */
 }
 
 h1 {
@@ -65,4 +67,33 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; /* Centrera alla inputfält */
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+input {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+  box-sizing: border-box;
+  margin: 5px;
+}
+
+.error-message {
+  display: block;
+  color: red;
+  font-size: 12px;
+  min-height: 16px;
+  margin-top: 4px;
 }
